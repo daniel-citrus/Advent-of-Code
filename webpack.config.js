@@ -22,6 +22,10 @@ module.exports = (end, argv) => {
                     test: /\.(png|svg|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
                 },
+                {
+                    test: /\.txt/,
+                    type: 'asset/source',
+                },
             ],
         },
         output: {
@@ -35,5 +39,10 @@ module.exports = (end, argv) => {
                 template: './src/template.html',
             }),
         ].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+        resolve: {
+            fallback: {
+                util: false,
+            },
+        },
     };
 };
