@@ -1,4 +1,4 @@
-export function merge(left, right) {
+function merge(left, right) {
     const result = [];
 
     while (left.length && right.length) {
@@ -18,14 +18,20 @@ export function merge(left, right) {
     }
 }
 
-export function mergeSort(array) {
-    if (array.length === 1) {
+function mergeSort(array) {
+    if (!array) {
+        return array;
+    }
+
+    if (array.length <= 1) {
         return array;
     }
 
     const mid = Math.ceil(array.length / 2);
-    const left = mergeSort(array(0, mid));
-    const right = mergeSort(array(mid));
+    const left = mergeSort(array.slice(0, mid));
+    const right = mergeSort(array.slice(mid));
 
     return merge(left, right);
 }
+
+module.exports = { merge, mergeSort };
