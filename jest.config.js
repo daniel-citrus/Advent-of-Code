@@ -5,7 +5,6 @@
 
 /** @type {import('jest').Config} */
 const config = {
-    transform: {},
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
