@@ -1,2 +1,2 @@
 import './style/style.scss';
-import './challenges/2024/1/totalDistance';
+import './challenges/2024/2/Red-Nosed Reports';
