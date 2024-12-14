@@ -1,23 +1,23 @@
-const order = extractOrder(require('./inputs/testRules.txt'));
-const updates = extractUpdates(require('./inputs/testUpdates.txt'));
+const order = require('./inputs/rules.txt');
+const updates = require('./inputs/updates.txt');
 
 // store order into map
-function extractOrder(orders) {
-    const orderMap = new Map();
-    orders = orders.split('\n');
+function extractRules(rules) {
+    const ruleMap = new Map();
+    rules = rules.split('\n');
 
-    for (let o in orders) {
-        const order = orders[o];
-        orders[o] = order.replace('\r', '').split('|');
+    for (let o in rules) {
+        const rule = rules[o];
+        rules[o] = rule.replace('\r', '').split('|');
 
-        if (orderMap.has(orders[o][0])) {
-            orderMap.get(orders[o][0]).push(orders[o][1]);
+        if (ruleMap.has(rules[o][0])) {
+            ruleMap.get(rules[o][0]).push(rules[o][1]);
         } else {
-            orderMap.set(orders[o][0], [orders[o][1]]);
+            ruleMap.set(rules[o][0], [rules[o][1]]);
         }
     }
 
-    return orderMap;
+    return ruleMap;
 }
 
 function extractUpdates(updates) {
@@ -32,3 +32,4 @@ function extractUpdates(updates) {
     return updates;
 }
 
+module.exports = { extractRules, extractUpdates };
